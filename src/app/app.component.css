@@ -1,0 +1,70 @@
+div.row {
+  margin-bottom: 1.5em;
+}
+
+div.jumbotron {
+  background-image: url('/assets/images/stock_bg.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.col-md-12 {
+  padding: 0;
+}
+
+table {
+  border-radius: 5px;
+}
+
+.table td,
+.table th {
+  vertical-align: middle;
+}
+
+thead {
+  background-color: teal;
+  color: #fff;
+}
+
+th {
+  font-weight: lighter;
+}
+
+.btn-primary {
+  background-color: #f55f13;
+  border-color: #f55f13;
+}
+
+button.none {
+  padding: .1em .25em;
+  margin: 0;
+  background: transparent;
+}
+
+div.panel {
+  border: 1px solid #e6e6e6;
+}
+
+div.panel-heading {
+  background-color: #f55f13;
+  color: #fff;
+  padding: .5em 1em;
+}
+
+div.panel-body {
+  padding: 1em;
+  background-color: #f9faf0;
+  overflow: hidden;
+}
+
+div.panel-body .row {
+  margin-bottom: .5em;
+}
+
+.nopads {
+  padding-left: 0;
+}
+
+.maintable {
+  transition: all 0.5s ease;
+}
