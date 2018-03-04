@@ -16,10 +16,10 @@ import { fade, slideRight, slideDown } from './../animations';
   ]
 })
 export class AppComponent {
-  title = 'app';
+  title = 'Stock Lookup';
 
   stocks: Array<any> = [];
-  detailClear: boolean = true;
+  detailClear = true;
   stockDetails: Array<any> = [];
   singleTag: any;
   tags: string;
@@ -64,8 +64,11 @@ export class AppComponent {
 
   onSubmit(e: Event) {
     e.preventDefault();
+
     // Clear any previous error message
     this.error = null;
+
+    // Close the detail component
     this.closeDetail();
 
     // Setup API components

@@ -61,6 +61,12 @@ div.panel-body .row {
   margin-bottom: .5em;
 }
 
+.info {
+  font-size: 85%;
+  font-style: italic;
+  color: teal;
+}
+
 .nopads {
   padding-left: 0;
 }

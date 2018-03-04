@@ -2,8 +2,6 @@ const request = require('request');
 
 module.exports = {
   index(req, res) {
-    console.log('ping!');
-    console.log(req.params.tags);
 
     // Setup API components
     const base = 'https://www.alphavantage.co/query?function=BATCH_STOCK_QUOTES&symbols=';
