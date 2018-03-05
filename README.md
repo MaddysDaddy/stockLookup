@@ -13,4 +13,4 @@ To install this project open a terminal inside the project folder. When viewing 
 5. Navigate to http://localhost:8000/ to view the application in browser.
 
 # Notes
-Please view this project in Chrome. It has not been fully optimized across all browsers.
+Please view this project in Chrome/Firefox. It has not been fully optimized across all browsers.
