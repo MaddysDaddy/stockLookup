@@ -24,6 +24,7 @@
     </div>
   </div>
 
+  <p *ngIf="errorMessage" class="text-danger">* Error {{ errorMessage.errorCode }}: {{ errorMessage.errorMessage }}</p>
   <p *ngIf="stocks.length > 0" class="info" @fade>* Click the stock tag to view more details about the stock.</p>
 
   <div *ngIf="stocks.length > 0" class="row">

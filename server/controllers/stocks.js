@@ -1,4 +1,5 @@
 const request = require('request');
+const rp = require('request-promise-native');
 
 module.exports = {
   index(req, res) {
@@ -7,12 +8,27 @@ module.exports = {
     const base = 'https://www.alphavantage.co/query?function=BATCH_STOCK_QUOTES&symbols=';
     const key = '&apikey=AQYYFTFBKBPA9HA5';
     const tags = req.params.tags;
+    const url = base + tags + key;
 
-    request(base + tags + key, (error, response, body) => {
+    const options = {
+      uri: url,
+      json: true
+    };
 
-      const data = JSON.parse(body);
-      res.json(data);
-    })
+    // Fetch the data
+    rp(options)
+      .then(data => {
+        res.json(data);
+      })
+      .catch(error => {
+        console.log('Error!: ', error.statusCode);
+        res.json({
+          errorMessage: 'Service is unavailable at this time. Please try again later.',
+          errorCode: error.statusCode
+        })
+      })
+
+
   },
   details(req, res) {
 
@@ -22,29 +38,41 @@ module.exports = {
     const tag = req.params.tag
     const url = base + tag + key;
 
-    request(url, (error, response, body) => {
+    const options = {
+      uri: url,
+      json: true
+    }
 
-      const data = JSON.parse(body);
+    rp(options)
+      .then(data => {
 
-      // Pulling data from the response
-      const apiData = data['Time Series (Daily)'];
+        // Pulling data from the response
+        const apiData = data['Time Series (Daily)'];
 
-      // Grab keys and values
-      const dataKeys = Object.keys(apiData);
-      const dataValues = Object.keys(apiData).map(key => {
-        return apiData[key]
-      });
-      let newData = [];
+        // Grab keys and values
+        const dataKeys = Object.keys(apiData);
+        const dataValues = Object.keys(apiData).map(key => {
+          return apiData[key]
+        });
+        let newData = [];
 
-      // Reshaping data to array
-      for (let i = 0; i < dataValues.length; i++) {
-        dataValues[i].date = dataKeys[i];
-        newData.push(dataValues[i]);
-      }
+        // Reshaping data to array
+        for (let i = 0; i < dataValues.length; i++) {
+          dataValues[i].date = dataKeys[i];
+          newData.push(dataValues[i]);
+        }
 
-      // Limiting to previous 1 day
-      newData = newData.slice(0, 1);
-      res.json(newData);
-    })
+        // Limiting to previous 1 day
+        newData = newData.slice(0, 1);
+        res.json(newData);
+
+      })
+      .catch(error => {
+        console.log('Error!: ', error.statusCode);
+        res.json({
+          errorMessage: 'Service is unavailable at this time. Please try again later.',
+          errorCode: error.statusCode
+        })
+      })
   }
 }

@@ -10,4 +10,8 @@ To install this project open a terminal inside the project folder. When viewing 
 2. Please make sure you are using angular/cli 1.6.3 'npm install -g @angular/cli@1.6.3'
 3. Run 'ng build' to build the project. 
 4. Run 'node server.js' to start the node server.
+5. Please make sure CORS is enabled in your browser. 
 5. Navigate to http://localhost:8000/ to view the application in browser.
+
+# Notes
+Please view this project in Chrome. It has not been fully optimized across all browsers.

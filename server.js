@@ -18,7 +18,6 @@ app.use(parser.json());
 
 
 // get routes
-// app.use('/auth/users', require('./server/config/user-routes'));
 app.use('/api/stocks', require('./server/config/routes'));
 
 

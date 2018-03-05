@@ -24,6 +24,7 @@ export class AppComponent {
   singleTag: any;
   tags: string;
   error: string;
+  errorMessage: any;
 
   constructor(private http: Http) { }
 
@@ -53,11 +54,21 @@ export class AppComponent {
     this.getData(url)
       .subscribe(data => {
 
-        this.singleTag = singleTag;
+        if (data.errorMessage) {
+          this.errorMessage = data;
 
-        setTimeout(() => {
-          this.stockDetails = data;
-        }, 100);
+          setTimeout(() => {
+            this.errorMessage = null;
+          }, 3000);
+        } else {
+          this.singleTag = singleTag;
+
+          setTimeout(() => {
+            this.stockDetails = data;
+          }, 100);
+        }
+
+
       });
   }
 
@@ -85,7 +96,16 @@ export class AppComponent {
     this.getData(url)
       .subscribe(data => {
 
-        this.stocks = data['Stock Quotes'];
+        if (data.errorMessage) {
+          this.errorMessage = data;
+
+          setTimeout(() => {
+            this.errorMessage = null;
+          }, 3000);
+        } else {
+          this.stocks = data['Stock Quotes'];
+
+        }
 
         // Display an error message if no stocks were found
         if (this.stocks.length === 0) {
