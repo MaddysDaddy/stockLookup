@@ -62,7 +62,7 @@ export class AppComponent {
   }
 
 
-  onSubmit(e: Event) {
+  onSubmit(e: Event, form: NgForm) {
     e.preventDefault();
 
     // Clear any previous error message
@@ -92,6 +92,9 @@ export class AppComponent {
         if (this.stocks.length === 0) {
           this.error = 'No tags found!';
         }
+
+        form.resetForm();
+
       });
 
   }

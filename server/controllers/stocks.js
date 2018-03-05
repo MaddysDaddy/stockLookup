@@ -31,7 +31,9 @@ module.exports = {
 
       // Grab keys and values
       const dataKeys = Object.keys(apiData);
-      const dataValues = Object.values(apiData);
+      const dataValues = Object.keys(apiData).map(key => {
+        return apiData[key]
+      });
       let newData = [];
 
       // Reshaping data to array
