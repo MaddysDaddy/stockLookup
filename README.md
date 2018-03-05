@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Installation
 
-To install this project open a terminal inside the project folder. When you look a the file directory you should see the server.js file. From here:
+To install this project open a terminal inside the project folder. When viewing the file directory the server.js file should be visible. From there:
 
 1. Install all dependencies 'npm install'.
 2. Please make sure you are using angular/cli 1.6.3 'npm install -g @angular/cli@1.6.3'
