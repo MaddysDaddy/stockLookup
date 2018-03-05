@@ -45,7 +45,7 @@ export class AppComponent {
 
   // Get details for single stock
   getStockDetails(singleTag) {
-    console.log(singleTag);
+
     this.detailClear = false;
     const base = '/api/stocks';
     const url = `${base}/detail/${singleTag}`;
@@ -84,8 +84,7 @@ export class AppComponent {
     // Return the data
     this.getData(url)
       .subscribe(data => {
-        // console.log(typeof (data));
-        console.log(data);
+
         this.stocks = data['Stock Quotes'];
 
         // Display an error message if no stocks were found

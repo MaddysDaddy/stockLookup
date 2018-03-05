@@ -14,8 +14,8 @@
       <form (submit)="onSubmit($event, stockForm)" #stockForm="ngForm">
         <div class="form-group row">
           <label class="sr-only" for="tags">Tags:</label>
-          <input type="text" name="tags" class="form-control col-md-10" [(ngModel)]="tags" required placeholder="Enter tags separated by a comma: MSFT, AAPL, FB">
-          <div class="col-md-2">
+          <input type="text" name="tags" class="form-control col-md-9 mb-2 mr-2" [(ngModel)]="tags" required placeholder="Enter tags separated by a comma: MSFT, AAPL, FB">
+          <div class="col-md-2 nopads">
             <button class="btn btn-primary" type="submit" [disabled]="!stockForm.valid">Submit</button>
           </div>
         </div>
